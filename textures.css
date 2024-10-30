@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart {
+    position: relative;
+    width: 120px; /* Ajustamos el tamaño del corazón */
+    height: 120px;
+    background-color: #FF6B6B; /* Rojo coral */
+    transform: rotate(-45deg);
+    margin-bottom: 40px;
+    animation: draw-heart 2s ease forwards, pulse 2s infinite;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); /* Brillo fucsia */
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #FF6B6B; /* Rojo coral */
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    left: 60px;
+    top: 0;
+}
+
+@keyframes draw-heart {
+    0% {
+        transform: scale(0.5) rotate(-45deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+/* Efecto de pulso en el corazón */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+    }
+}
+
+/* Título con efecto de escarcha y fuente cursiva */
+.frost-title {
+    font-size: 60px;
+    font-weight: bold;
+    color: #FFF5E1; /* Blanco cálido */
+    font-family: 'Great Vibes', cursive; /* Aplica la nueva fuente */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para hacer que el texto resalte */
+    animation: glitter 3s infinite;
+    margin-bottom: 60px;
+}
+
+@keyframes glitter {
+    0%, 100% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+    }
+    50% {
+        text-shadow: 0 0 20px #fff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff;
+    }
+}
+
+/* Contenedor de texto */
+.text-container {
+    margin-top: 20px;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Aplica la nueva fuente romántica a los textos */
+#phrase {
+    font-size: 28px;
+    color: #ffffff; /* Cambia el color a blanco para mayor contraste */
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra suave para resaltar el texto */
+    opacity: 0;
+    animation: fadeInText 2s ease forwards;
+    margin-top: 30px;
+}
+
+
+/* Animación de desvanecimiento */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Empieza desplazado hacia abajo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Llega a su posición original */
+    }
+}
+
+/* Añadimos un retraso en cada línea de texto */
+#phrase:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+#phrase:nth-child(2) {
+    animation-delay: 1s;
+}
+
+#phrase:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+#phrase:nth-child(4) {
+    animation-delay: 2.0s;
+}
+
+#phrase:nth-child(5) {
+    animation-delay: 2.5s;
+}
+
+/* Corazones flotantes a los lados */
+.decorative-hearts {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: float 5s ease-in-out infinite, fade 3s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+.decorative-hearts::before, 
+.decorative-hearts::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.decorative-hearts::before {
+    top: -30px;
+    left: 0;
+}
+
+.decorative-hearts::after {
+    left: 30px;
+    top: 0;
+}
+
+.left {
+    top: 40%;
+    left: 10px;
+    animation-delay: 1s;
+}
+
+.right {
+    top: 40%;
+    right: 10px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Efecto de desvanecimiento para los corazones laterales */
+@keyframes fade {
+    0% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
