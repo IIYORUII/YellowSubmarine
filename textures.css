@@ -24,13 +24,13 @@ body {
 
 .heart {
     position: relative;
-    width: 120px; /* Ajustamos el tamaño del corazón */
+    width: 120px;
     height: 120px;
-    background-color: #FF6B6B; /* Rojo coral */
+    background-color: #FF6B6B;
     transform: rotate(-45deg);
     margin-bottom: 40px;
-    animation: draw-heart 2s ease forwards, pulse 2s infinite;
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); /* Brillo fucsia */
+    animation: draw-heart 2s ease forwards, pulse 2s infinite, glow 3s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
 }
 
 .heart::before,
@@ -79,24 +79,49 @@ body {
 
 /* Título con efecto de escarcha y fuente cursiva */
 .frost-title {
-    font-size: 60px;
+    font-size: 70px;
     font-weight: bold;
-    color: #FFF5E1; /* Blanco cálido */
-    font-family: 'Great Vibes', cursive; /* Aplica la nueva fuente */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para hacer que el texto resalte */
-    animation: glitter 3s infinite;
+    color: #fff0f5;
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff00ff,
+        0 0 30px #ff00ff,
+        0 0 40px #ff00ff;
+    animation: glitter 2.5s infinite;
     margin-bottom: 60px;
 }
 
 @keyframes glitter {
-    0%, 100% {
-        text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+    0% {
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #ff00ff,
+            0 0 30px #ff00ff,
+            0 0 40px #ff00ff,
+            0 0 50px #ff66ff,
+            0 0 60px #ff66ff;
     }
     50% {
-        text-shadow: 0 0 20px #fff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff;
+        text-shadow:
+            0 0 20px #fff,
+            0 0 30px #ff00ff,
+            0 0 40px #ff00ff,
+            0 0 50px #ff33cc,
+            0 0 60px #ff33cc,
+            0 0 70px #ff33cc;
+    }
+    100% {
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #ff00ff,
+            0 0 30px #ff00ff,
+            0 0 40px #ff00ff,
+            0 0 50px #ff66ff,
+            0 0 60px #ff66ff;
     }
 }
-
 /* Contenedor de texto */
 .text-container {
     margin-top: 20px;
@@ -106,7 +131,7 @@ body {
 
 /* Aplica la nueva fuente romántica a los textos */
 #phrase {
-    font-size: 28px;
+    font-size: 32px;
     color: #ffffff; /* Cambia el color a blanco para mayor contraste */
     text-align: center;
     font-family: 'Great Vibes', cursive;
@@ -198,7 +223,7 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-100px);
     }
 }
 
@@ -209,5 +234,14 @@ body {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.6), 0 0 30px rgba(255, 105, 180, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 105, 180, 1), 0 0 40px rgba(255, 105, 180, 0.8);
     }
 }
